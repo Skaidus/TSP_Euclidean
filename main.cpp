@@ -330,7 +330,7 @@ int main(int argc, char **argv) {
     string usage = "    Usage: ./TSP_Euclid {file} {algorithm} *{nodes} *{times}\n"
                    "         file: contains a first line with nodes, number of cities, and then nodes lines with points \"x y\"\n"
                    "         algorithm: 1 for Simple, 2 for Heuristic, 3 for Heuristic + Sorted\n"
-                   "         (optional) nodes: number of cities, overrides the nodes of the file if it is less\n"
+                   "         nodes: number of cities to grab from file, file has to have at least that amount\n"
                    "         (optional) times: number of executions to time, default 60\n";
 
 
@@ -355,10 +355,7 @@ int main(int argc, char **argv) {
     getline(input, temp_line);
     vector<string> parsed_first_line = split_file_line(temp_line);
 
-    int n = stoi(parsed_first_line[0]);
-    if (argc >= 4) {
-        n = atoi(argv[3]);
-    }
+    int n = atoi(argv[3]);
 
     unsigned int times = 60;
     if (argc == 5) {
