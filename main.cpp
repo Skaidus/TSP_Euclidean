@@ -290,7 +290,7 @@ public:
             for(auto i = 1; i < nodes-1; i++){
                 for(auto j = i+1; j < nodes-1; j++){
                     if(adj_matrix[current_path[i-1]][current_path[i]] + adj_matrix[current_path[j]][current_path[j + 1]] > adj_matrix[current_path[i-1]][current_path[j]] + adj_matrix[current_path[i]][current_path[j+1]]){
-                        std::reverse(current_path.begin()+i, current_path.begin() + j);
+                        std::reverse(current_path.begin()+i, current_path.begin() + (j+1));
                         path_changed=true;
                     }
                 }
